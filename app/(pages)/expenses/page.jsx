@@ -274,8 +274,8 @@ function Expenses() {
                       <p>{Math.floor(data?.amount)} TK</p>
                     </td>
                     <td className="text-center">
-                      {/* <p><Link href={`${data?.id}`}><FaRegEye className="text-green-500 text-xl" /></Link></p> */}
-                      <p><Link href="#"><FaRegEye className="text-green-500 text-xl" /></Link></p>
+                      <p><Link href={`/expenses/${data?.id}`}><FaRegEye className="text-green-500 text-xl" /></Link></p>
+                      {/* <p><Link href="#"><FaRegEye className="text-green-500 text-xl" /></Link></p> */}
                     </td>
                   </tr>
                 ))}
