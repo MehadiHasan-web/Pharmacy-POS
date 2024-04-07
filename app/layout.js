@@ -4,9 +4,6 @@ import "./globals.css";
 import Navbar from "./componentes/Navbar";
 import Sidebar from "./componentes/Sidebar";
 
-
-
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -15,6 +12,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+  
 
 
   return (

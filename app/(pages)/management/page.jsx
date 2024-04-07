@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 // import { axios } from 'axios';
 import axios from 'axios';
 import { ToastContainer, toast } from "react-toastify";
-import { Link } from 'next/link';
+import Link from 'next/link';
 
 
 function Management() {
@@ -46,7 +46,7 @@ function Management() {
         })
         .catch((error) => console.error("Error fetching data:", error));
     }, []);
-    console.log(filteredProducts)
+
   
     const addStockData = (event) => {
       event.preventDefault();
@@ -138,9 +138,9 @@ function Management() {
             >
               Clear filter
             </button>
-            <a href="/" className=" bg-green-500  btn btn-outline btn-sm rounded-full mx-1 hover:text-white shadow hover:shadow-lg sm:w-full lg:w-1/4">
+            <Link href="/management/addinventoryproduct" className=" bg-green-500  btn btn-outline btn-sm rounded-full mx-1 hover:text-white shadow hover:shadow-lg sm:w-full lg:w-1/4">
               Product Entry
-            </a>
+            </Link>
             <button
               type="button"
               className="btn bg-green-500 btn-sm rounded-full mx-1 hover:text-white shadow hover:shadow-lg"
