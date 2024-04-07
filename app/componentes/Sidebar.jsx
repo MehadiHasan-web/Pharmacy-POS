@@ -1,9 +1,15 @@
+
+import { Link } from 'next/link';
+
 function Sidebar() {
     return (
-        <div>
-            <h2>sidebar</h2>
-        </div>
+    <div>
+      <ul>
+      <li><a href="/">DashBoard</a></li>
+      <li><a href="/expenses">Expenses</a></li>
+      </ul>
+    </div>
     )
 }
 
-export default Sidebar
+export default Sidebar;

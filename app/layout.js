@@ -1,5 +1,11 @@
+
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "./componentes/Navbar";
+import Sidebar from "./componentes/Sidebar";
+
+
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -9,9 +15,32 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <div className="flex items-center">
+          {/* left section start */}
+          <div className="w-[10%]">
+            {/* Sidebar section start */}
+            <Sidebar></Sidebar>
+            {/* Sidebar section end */}
+          </div>
+          {/* left section end */}
+          {/* right section start */}
+          <div className="w-[90%]">
+            {/* navbar section start */}
+            <Navbar></Navbar>
+            {/* navbar section end */}
+            {/* main content section start */}
+              {children}
+            {/* main content section end */}
+          </div>
+          {/* right section end */}
+          
+        </div>
+      </body>
     </html>
   );
 }
