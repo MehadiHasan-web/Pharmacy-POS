@@ -19,17 +19,17 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body>
-        <div className="flex items-center h-full">
+      <body className="h-full">
+        <div className="flex items-center h-screen">
           {/* left section start */}
-          <div className="w-[13%]">
+          <div className="w-[13%] h-screen">
             {/* Sidebar section start */}
             <Sidebar></Sidebar>
             {/* Sidebar section end */}
           </div>
           {/* left section end */}
           {/* right section start */}
-          <div className="w-[87%]">
+          <div className="w-[87%] h-full">
             {/* navbar section start */}
 
               <Navbar></Navbar>

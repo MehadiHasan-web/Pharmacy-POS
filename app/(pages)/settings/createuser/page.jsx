@@ -3,7 +3,7 @@ import React from 'react';
 import { axios } from 'axios';
 
 
-const UserSettings = () => {
+const CreateUser = () => {
 
   const userSettingsData = (event) => {
     event.preventDefault();
@@ -74,4 +74,4 @@ const UserSettings = () => {
   );
 };
 
-export default UserSettings;
+export default CreateUser;

@@ -11,7 +11,7 @@ import { IoMdSettings } from "react-icons/io";
 
 function Sidebar() {
     return (
-    <div className="w-full bg-[#1E1E1E] sticky top-0 p-2 h-screen">
+    <div className="w-full bg-[#1E1E1E]">
       <div className="my-4 ">
         <FaSquareCaretRight className="text-green-500 text-2xl text-right"></FaSquareCaretRight> 
       </div>
@@ -23,7 +23,7 @@ function Sidebar() {
 
       <li><div className="border-[1px] border-x-slate-50 my-5"></div></li>
 
-      <li><a href="/" className="flex justify-center items-center gap-2">
+      <li><a href="/dashboard" className="flex justify-center items-center gap-2">
       <MdDashboard className="text-green-500"></MdDashboard>
       <span className=" font-semibold text-slate-200">Dashboard</span>
       </a></li>
@@ -41,11 +41,11 @@ function Sidebar() {
       <GiExpense className="text-green-500"></GiExpense><span className=" font-semibold text-slate-200">Expenses</span>
       </a></li>
 
-      <li><a href="/" className="flex justify-center items-center gap-2">
+      <li><a href="/management" className="flex justify-center items-center gap-2">
       <IoPersonCircleSharp className="text-green-500"></IoPersonCircleSharp><span className=" font-semibold text-slate-200">Management</span>
       </a></li>
 
-      <li><a href="/" className="flex justify-center items-center gap-2">
+      <li><a href="/settings" className="flex justify-center items-center gap-2">
       <IoMdSettings className="text-green-500"></IoMdSettings><span className=" font-semibold text-slate-200">Settings</span>
       </a></li>
 
