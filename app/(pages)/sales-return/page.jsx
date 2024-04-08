@@ -24,6 +24,7 @@ export default function SalesReturn() {
     const currentPosts = filteredData.slice(firstPostIndex, lastPostIndex)
 
     const token = '72dbf14411791344bbd2044ff82473c2e58e72b5'
+    localStorage.setItem('token',token)
 
     let page = [];
     for (let i = 1; i <= Math.ceil(filteredData.length / postPerPage); i++) {
@@ -134,7 +135,7 @@ export default function SalesReturn() {
                                 <button type="submit" className="btn btn-outline btn-sm rounded-full mx-3  hover:text-white ">Search</button>
                                 <button onClick={handleClearSearch} type="button" className="btn btn-outline btn-sm rounded-full mx-1  hover:text-white ">Clear filter</button>
 
-                                <Link href="/scanner" type="button" className="btn btn-outline btn-sm rounded mx-1  hover:text-white "><BiBarcodeReader className="text-2xl" /></Link>
+                                <Link href={"/sales-return/scanner"} type="button" className="btn btn-outline btn-sm rounded mx-1  hover:text-white "><BiBarcodeReader className="text-2xl" /></Link>
 
                             </form>
                         </div>
@@ -181,9 +182,9 @@ export default function SalesReturn() {
                                         </td>
                                         <td>  <p>{tableData?.date}</p></td>
                                         <td>  <p>TK. {tableData?.sale?.total}</p></td>
-                                        {/* invoice  */}
+                                        {/* invoice  */}  
                                         <td className="text-center">
-                                            <Link to={`${tableData?.sale?.id}`}>
+                                            <Link href={`sales-return/${tableData?.sale?.id}`}>
                                                 <button className="btn btn-outline btn-success btn-sm">
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"

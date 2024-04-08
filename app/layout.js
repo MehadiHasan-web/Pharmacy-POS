@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
 
 
   return (
-    <html lang="en">
+    <html lang="en" data-theme="cupcake">
       <body className="h-full">
         <div className="flex items-center h-screen">
           {/* left section start */}
