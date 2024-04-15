@@ -34,7 +34,6 @@ function Sidebar() {
           <RiMoneyDollarCircleFill className="text-green-500 text-2xl"></RiMoneyDollarCircleFill>
           <span className=" font-semibold text-slate-200">Sales</span>
         </Link></li>
-
         <li><Link href="/sales-return" className="flex justify-center items-center gap-2">
           <MdInventory className="text-green-500"></MdInventory>
           <span className=" font-semibold text-slate-200">Sales Return</span>

@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import Link from "next/link";
- import { IoQrCodeOutline } from "react-icons/io5";
+import { IoQrCodeOutline } from "react-icons/io5";
 import { FaBarcode } from "react-icons/fa6";
 import { PiPrinterThin } from "react-icons/pi";
 import { SiMicrosoftexcel } from "react-icons/si";
@@ -168,7 +168,6 @@ export default function SalesRequest () {
   
     return (
       <>
-       
         {/* title section end */}
         {/* table history  */}
         <div>
