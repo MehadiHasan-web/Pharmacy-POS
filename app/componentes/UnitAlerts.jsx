@@ -1,13 +1,11 @@
-import React from 'react';
+
 import { MdCrisisAlert } from "react-icons/md";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
 import { LuDot } from "react-icons/lu";
 
 const UnitAlerts = ({data}) => {
-  
+
   const unitAlert = data?.unit_alerts;
-
-
   return (
     <div>
       <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Unit Alerts</h1>
