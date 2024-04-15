@@ -267,7 +267,6 @@ export default function Expenses() {
                     <th className="text-black"> Date</th>
                     <th className="text-black"> Amount</th>
                     <th className="text-black"> Show</th>
-
                   </tr>
                 </thead>
                 <tbody>
