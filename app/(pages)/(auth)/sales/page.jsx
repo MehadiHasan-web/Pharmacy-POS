@@ -13,6 +13,7 @@ import { useReactToPrint } from "react-to-print";
 import Barcode from "react-barcode";
 import { format } from "date-fns";
 import * as XLSX from 'xlsx/xlsx.mjs';
+import getSales from "@/lib/getSales";
 // import * as fs from 'fs';
 // XLSX.set_fs(fs);
 
@@ -58,21 +59,38 @@ export default function SalesRequest () {
     };
   
     // get data
-    useEffect(() => {
-      const token = localStorage.getItem("token");
-      axios
-        .get(`https://rpos.pythonanywhere.com/api/v1/sales/`, {
-          headers: { 'Authorization': 'token ' + token }
-        })
-        .then((res) => res.data)
-        .then((data) => {
-          console.log(data)
-          setUserData(data)
-        })
-        .catch((error) => console.error("Error fetching data:", error));
-    }, [setUserData]);
+    // useEffect(() => {
+    //   const token = localStorage.getItem("token");
+    //   axios
+    //     .get(`https://rpos.pythonanywhere.com/api/v1/sales/`, {
+    //       headers: { 'Authorization': 'token ' + token }
+    //     })
+    //     .then((res) => res.data)
+    //     .then((data) => {
+    //       console.log(data)
+    //       setUserData(data)
+    //     })
+    //     .catch((error) => console.error("Error fetching data:", error));
+    // }, [setUserData]);
   
   
+    const fetchData = async () => {
+      try {
+        const data = await getSales();
+        return data;
+      } catch (e) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    fetchData()
+      .then(data => {
+        setUserData(data)
+      })
+      .catch(error => {
+        console.error('Error occurred:', error);
+      });
+
+
     // clear search
     const handleClearSearch = (e) => {
       e.preventDefault();

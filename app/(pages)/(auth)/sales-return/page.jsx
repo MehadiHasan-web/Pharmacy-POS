@@ -7,6 +7,7 @@ import axios from "axios";
 import { BiBarcodeReader } from "react-icons/bi";
 import  Link  from "next/link";
 import { format } from "date-fns";
+import getSalesReturn from "@/lib/getSalesReturn";
 
 export default function SalesReturn() {
 
@@ -44,19 +45,35 @@ export default function SalesReturn() {
     };
 
     // get return data 
-    useEffect(() => {
+    // useEffect(() => {
        
 
-        axios.get(`https://rpos.pythonanywhere.com/api/v1/salesReturn/`, {
-            headers: { 'Authorization': 'token ' + token }
+    //     axios.get(`https://rpos.pythonanywhere.com/api/v1/salesReturn/`, {
+    //         headers: { 'Authorization': 'token ' + token }
+    //     })
+    //         .then((res) => res.data)
+    //         .then((data) => {
+    //             console.log(data)
+    //             setAdminData(data)
+    //         })
+    //         .catch((error) => console.error("Error fetching data:", error));
+    // }, [setAdminData]);
+    const fetchData = async () => {
+        try {
+          const data = await getSalesReturn();
+          return data;
+        } catch (e) {
+          console.error('Error fetching data:', error);
+        }
+      }
+      fetchData()
+        .then(data => {
+            setAdminData(data)
         })
-            .then((res) => res.data)
-            .then((data) => {
-                console.log(data)
-                setAdminData(data)
-            })
-            .catch((error) => console.error("Error fetching data:", error));
-    }, [setAdminData]);
+        .catch(error => {
+          console.error('Error occurred:', error);
+        });
+  
 
 
 

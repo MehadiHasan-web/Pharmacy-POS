@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { FaRegEye } from "react-icons/fa";
 import getExpenses from "@/lib/getExpenses";
 
-export default function Expenses() {
+export default function  Expenses () {
 
   const [userData, setUserData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
@@ -40,22 +40,22 @@ export default function Expenses() {
     }
   };
 
-  // const fetchData = async () => {
-  //   try {
-  //     const data = await getExpenses();
-  //     return data;
-  //   } catch (e) {
-  //     console.error('Error fetching data:', error);
-  //   }
-  // }
+  const fetchData = async () => {
+    try {
+      const data = await getExpenses();
+      return data;
+    } catch (e) {
+      console.error('Error fetching data:', error);
+    }
+  }
 
-  // fetchData()
-  //   .then(data => {
-  //     setUserData(data);
-  //   })
-  //   .catch(error => {
-  //     console.error('Error occurred:', error);
-  //   });
+  fetchData()
+    .then(data => {
+      setUserData(data);
+    })
+    .catch(error => {
+      console.error('Error occurred:', error);
+    });
 
 
   // get Expenses data

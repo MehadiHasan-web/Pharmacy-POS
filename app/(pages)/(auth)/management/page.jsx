@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import { ToastContainer, toast } from "react-toastify";
 import Link from 'next/link';
+import getInventory from "@/lib/getInventory";
 
 
 function Management() {
@@ -33,20 +34,37 @@ function Management() {
   
   
     // get data
-    useEffect(() => {
+    // useEffect(() => {
   
-      axios
-        .get(`https://rpos.pythonanywhere.com/api/v1/inventory/`, {
-          headers: { 'Authorization': 'token ' + token }
-        })
-        .then((res) => res.data)
-        .then((data) => {
-          console.log(data)
-          setCard(data)
-        })
-        .catch((error) => console.error("Error fetching data:", error));
-    }, []);
+    //   axios
+    //     .get(`https://rpos.pythonanywhere.com/api/v1/inventory/`, {
+    //       headers: { 'Authorization': 'token ' + token }
+    //     })
+    //     .then((res) => res.data)
+    //     .then((data) => {
+    //       console.log(data)
+    //       setCard(data)
+    //     })
+    //     .catch((error) => console.error("Error fetching data:", error));
+    // }, []);
 
+    const fetchData = async () => {
+      try {
+        const data = await getInventory();
+        return data;
+      } catch (e) {
+        console.error('Error fetching data:', error);
+      }
+    }
+  
+    fetchData()
+      .then(data => {
+        setCard(data)
+      })
+      .catch(error => {
+        console.error('Error occurred:', error);
+      });
+  
   
     const addStockData = (event) => {
       event.preventDefault();
