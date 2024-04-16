@@ -1,4 +1,5 @@
 'use client'
+import getCategories from "@/lib/getCategories";
 import axios from "axios";
 import { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
@@ -14,20 +15,36 @@ const AddInventoryProduct = () => {
   // const navigate = useNavigate();
 
   // get category
-  useEffect(() => {
-    axios
-      .get(`https://rpos.pythonanywhere.com/api/v1/categories/`, {
-        headers: { Authorization: "token " + token },
-      })
-      .then((response) => {
-        setCategory(response.data);
-        // console.log('Response:', response.data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        toast.error(`${error.message} .Try again`);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://rpos.pythonanywhere.com/api/v1/categories/`, {
+  //       headers: { Authorization: "token " + token },
+  //     })
+  //     .then((response) => {
+  //       setCategory(response.data);
+  //       // console.log('Response:', response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error:", error);
+  //       toast.error(`${error.message} .Try again`);
+  //     });
+  // }, []);
+  const fetchData = async () => {
+    try {
+      const data = await getCategories();
+      return data;
+    } catch (e) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  fetchData()
+    .then(data => {
+      setCategory(data)
+    })
+    .catch(error => {
+      console.error('Error occurred:', error);
+    });
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];

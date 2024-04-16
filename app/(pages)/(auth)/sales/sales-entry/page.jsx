@@ -20,6 +20,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
+import getCategories from "@/lib/getCategories";
+import getInventory from "@/lib/getInventory";
 
 
 export default function SalesEntry()  { 
@@ -55,38 +57,70 @@ export default function SalesEntry()  {
   }, [wishlist]);
 
   //get all categories
-  const getAllCategories = useCallback(() => {
-    axios
-      .get(`https://rpos.pythonanywhere.com/api/v1/categories/`, {
-        headers: { 'Authorization': 'token ' + token }
-      })
-      .then((response) => {
-        setCategories(response.data);
-        console.log("All Category:", response.data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }, []);
+  // const getAllCategories = useCallback(() => {
+  //   axios
+  //     .get(`https://rpos.pythonanywhere.com/api/v1/categories/`, {
+  //       headers: { 'Authorization': 'token ' + token }
+  //     })
+  //     .then((response) => {
+  //       setCategories(response.data);
+  //       console.log("All Category:", response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error:", error);
+  //     });
+  // }, []);
 
-  useEffect(() => {
-    getAllCategories();
-  }, [getAllCategories]);
+  // useEffect(() => {
+  //   getAllCategories();
+  // }, [getAllCategories]);
+  const fetchData = async () => {
+    try {
+      const data = await getCategories();
+      return data;
+    } catch (e) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  fetchData()
+    .then(data => {
+      setCategories(data)
+    })
+    .catch(error => {
+      console.error('Error occurred:', error);
+    });
 
   //get all Products
-  useEffect(() => {
-    axios
-      .get(`https://rpos.pythonanywhere.com/api/v1/inventory/`, {
-        headers: { 'Authorization': 'token ' + token }
-      })
-      .then((response) => {
-        setProducts(response.data);
-        console.log("All Products:", response.data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://rpos.pythonanywhere.com/api/v1/inventory/`, {
+  //       headers: { 'Authorization': 'token ' + token }
+  //     })
+  //     .then((response) => {
+  //       setProducts(response.data);
+  //       console.log("All Products:", response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error:", error);
+  //     });
+  // }, []);
+  const fetchInventoryData = async () => {
+    try {
+      const data = await getInventory();
+      return data;
+    } catch (e) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  fetchInventoryData()
+    .then(data => {
+      setCategories(data)
+    })
+    .catch(error => {
+      console.error('Error occurred:', error);
+    });
 
   // add  to card or increment functionality
   const cardData = (product, event) => {
