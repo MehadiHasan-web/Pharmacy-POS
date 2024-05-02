@@ -4,7 +4,7 @@ import {  useEffect, useRef, useState } from "react";
 import { useParams } from 'next/navigation';
 import { useReactToPrint } from "react-to-print";
 import Barcode from "react-barcode";
-import footerImage from "../../../../public/invoice-footer.png";
+import footerImage from "../../../../../public/invoice-footer.png";
 import { FaPrint } from "react-icons/fa6";
 import Image from "next/image"
 // import { AuthContext } from "../../Providers/AuthProvider";
